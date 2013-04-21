@@ -13,9 +13,9 @@ If you don't like ASDF, just compile package.lisp, then gnuplot.lisp.
 
 	(plot '(0 1 2)) ; y values only
 	(plot '(0 1 2) (3 4 5)) ; x and y values
-	(plot '(0 1 2) (3 4 5)) \"with lines\")) ; x and y values with a formatting command
-	(plot '(0 1 2) \"with lines\")) ; y values with a formatting command
-	(plot '(0 1 2) (3 4 5) \"with lines\" (0 1 2) (3 4 5) \"with impulses\") ; 2 plots"
+	(plot '(0 1 2) (3 4 5)) "with lines")) ; x and y values with a formatting command
+	(plot '(0 1 2) "with lines")) ; y values with a formatting command
+	(plot '(0 1 2) (3 4 5) "with lines" (0 1 2) (3 4 5) "with impulses") ; 2 plots"
 
 The lplot form is similar to plot except that all arguments are passed as a list of lists.
 
