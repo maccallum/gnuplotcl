@@ -4,7 +4,7 @@ gnuplotcl is a Common Lisp wrapper for gnuplot.
 
 To load using ASDF, do
 
-	(asdf:load-package 'gnuplot)
+	(asdf:load-system 'gnuplot)
 	(use-package 'gnuplot)
 
 If you don't like ASDF, just compile package.lisp, then gnuplot.lisp.
