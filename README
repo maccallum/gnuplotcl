@@ -1,0 +1,44 @@
+gnuplotcl is a Common Lisp wrapper for gnuplot.  
+
+---Loading the gnuplot package:
+
+To load using ASDF, do
+
+	(asdf:load-package 'gnuplot)
+	(use-package 'gnuplot)
+
+If you don't like ASDF, just compile package.lisp, then gnuplot.lisp.
+
+---Plotting values;
+
+	(plot '(0 1 2)) ; y values only
+	(plot '(0 1 2) (3 4 5)) ; x and y values
+	(plot '(0 1 2) (3 4 5)) \"with lines\")) ; x and y values with a formatting command
+	(plot '(0 1 2) \"with lines\")) ; y values with a formatting command
+	(plot '(0 1 2) (3 4 5) \"with lines\" (0 1 2) (3 4 5) \"with impulses\") ; 2 plots"
+
+The lplot form is similar to plot except that all arguments are passed as a list of lists.
+
+---Sending commands to the gnuplot process:
+
+	(gp-command (format nil "set xtics (~{~A~^, ~})" (arithm-seq 100 :step 2)))
+	(gp-command "set xlabel \"Time (sec.)\"")
+	(gp-command "set xrange [0 : 100]")
+
+---Starting, restarting and quitting the gnuplot process:
+
+	(start-gp)
+	(restart-gp)
+	(quit-gp)
+
+---Setting the term type and output file:
+
+	(gp-set-term-type <termtype>)
+	(gp-set-output-file <outputfilename>)
+
+Must be one of the symbols in *gp-term-commands*: x11, eps, eps-tabloid-landscape, or png. You can, of course, just add more commands to that variable.
+
+---Querying the state of the gnuplot process:
+
+	(is-gp-running?)
+	(gp-get-term-type)
